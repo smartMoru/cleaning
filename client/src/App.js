@@ -6,7 +6,11 @@ import EndOfLeaseCleaning from './EndOfLeaseCleaning'; // 新组件
 import PreSaleCleaning from './PreSaleCleaning'; // 新组件
 import Contact from './Contact';
 import image from './image.png';
+import Pricing from './Pricing';
 import './App.css';  
+import { DownOutlined } from '@ant-design/icons';
+
+
 
 const { Header, Content, Footer } = Layout;
 // const { Link } = Typography;
@@ -49,10 +53,11 @@ function App() {
         <Menu theme="light" mode="horizontal" onClick={handleClick} selectedKeys={[current]}>
           <Menu.Item key="about">About Us</Menu.Item>
           <Dropdown overlay={serviceMenu}>
-            <span className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-              Service
-            </span>
-          </Dropdown>
+  <span className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+    Service <DownOutlined />
+  </span>
+</Dropdown>
+
           <Menu.Item key="pricing">Pricing</Menu.Item>
           <Menu.Item key="contact">Contact</Menu.Item>
           <Menu.Item key="eco">Eco Highlights</Menu.Item>
@@ -63,11 +68,12 @@ function App() {
         {current === 'routine' && <RoutineCleaning />}
         {current === 'endOfLease' && <EndOfLeaseCleaning />}
         {current === 'preSale' && <PreSaleCleaning />}
+        {current === 'pricing' && <Pricing />}
         {current === 'contact' && <Contact />}
         {/* 其他组件的条件渲染可以在此添加 */}
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-        Cleaning Service ©2022 Created by Ant UED
+        Cleaning Service ©2022 Created by Liang
       </Footer>
     </Layout>
   );
