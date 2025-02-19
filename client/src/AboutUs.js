@@ -10,12 +10,15 @@ function AboutUs() {
       padding: '50px', 
       color: 'white' 
     }}>
-      <Title style={{ color: 'white' }}>About Us</Title>
+      <Title style={{ color: 'black' }}>About Us</Title>
       <Paragraph>
         我们已经专注于清洁多年，专注于Routine House Cleaning, End Of Lease Cleaning, Pre-Sale Property Cleaning。
       </Paragraph>
       <Paragraph>
-        在退租清洁方面，我们保证退还全部的bond，在悉尼等地提供服务。
+      We are more than your local cleaners!
+Job satisfaction guaranteed!
+We refund if not satisfied!
+
       </Paragraph>
     </div>
   );

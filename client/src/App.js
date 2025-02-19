@@ -4,13 +4,17 @@ import AboutUs from './AboutUs';
 import RoutineCleaning from './RoutineCleaning'; // 新组件
 import EndOfLeaseCleaning from './EndOfLeaseCleaning'; // 新组件
 import PreSaleCleaning from './PreSaleCleaning'; // 新组件
+import Contact from './Contact';
+import image from './image.png';
+import './App.css';  
+
 const { Header, Content, Footer } = Layout;
 // const { Link } = Typography;
 
 
 
 function App() {
-  const [current, setCurrent] = useState('home');
+  const [current, setCurrent] = useState('about');
 
   const handleClick = e => {
     setCurrent(e.key);
@@ -24,17 +28,30 @@ function App() {
   );
   return (
     <Layout className="layout">
-      <div style={{ background: 'navy', color: 'white', textAlign: 'center', padding: '10px' }}>
-        Call us on 0456 190 109
+      <div style={{ background: 'linear-gradient(to right, #393939 0%, #b6c3b5 100%)', color: 'white', textAlign: 'center', padding: '10px' }}>
+      <a 
+        href="tel:0456190109" 
+        style={{ 
+        color: 'white', 
+        textDecoration: 'none',
+        transition: 'opacity 0.3s ease'
+      }}
+      onMouseOver={(e) => e.target.style.opacity = '0.7'} 
+      onMouseOut={(e) => e.target.style.opacity = '1'}
+  >
+          ☎ Call us on 0456 190 109
+        </a>
       </div>
-      <Header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 50px' }}>
+      <Header style={{ background: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 50px' }}>
         <div className="logo">
-          <img src="image.png" alt="Logo" style={{ maxHeight: '64px' }} />
+          <img src={image} alt="Logo" style={{ maxHeight: '64px' }} />
         </div>
-        <Menu theme="dark" mode="horizontal" onClick={handleClick} selectedKeys={[current]}>
+        <Menu theme="light" mode="horizontal" onClick={handleClick} selectedKeys={[current]}>
           <Menu.Item key="about">About Us</Menu.Item>
           <Dropdown overlay={serviceMenu}>
-            <Menu.Item key="service">Service</Menu.Item>
+            <span className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+              Service
+            </span>
           </Dropdown>
           <Menu.Item key="pricing">Pricing</Menu.Item>
           <Menu.Item key="contact">Contact</Menu.Item>
@@ -46,6 +63,7 @@ function App() {
         {current === 'routine' && <RoutineCleaning />}
         {current === 'endOfLease' && <EndOfLeaseCleaning />}
         {current === 'preSale' && <PreSaleCleaning />}
+        {current === 'contact' && <Contact />}
         {/* 其他组件的条件渲染可以在此添加 */}
       </Content>
       <Footer style={{ textAlign: 'center' }}>
