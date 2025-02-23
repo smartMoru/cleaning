@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Card } from 'antd';
+import { Carousel } from 'antd';
 import './App.css';
 import r1 from './img/r1.jpg'
 import r2 from './img/r2.jpg'
