@@ -25,3 +25,13 @@
   text-align: center;
   padding: 10px 0;
 }
+
+/* 自定义 Carousel 的滑动点样式 */
+/* App.css */
+.ant-carousel .slick-dots li button {
+  background-color: #1890ff; /* Ant Design 蓝色 */
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  background-color: #ff4ddb; /* Ant Design 红色 */
+}
