@@ -1,25 +1,38 @@
 import React from 'react';
-import { Card } from 'antd';
-import image1 from './image1.jpg'
+import { Carousel } from 'antd';
+import './App.css';
+import e1 from './img/e1.jpg';
+import e2 from './img/e2.jpg';
+import e3 from './img/e3.jpg';
+
 const RoutineCleaning = () => {
-  const data = [
-    { title: "服务1", description: "这是服务1的描述", imageUrl: image1 },
-    { title: "服务2", description: "这是服务2的描述", imageUrl: "image2.jpg" },
-    { title: "服务3", description: "这是服务3的描述", imageUrl: "image3.jpg" },
+  const slides = [
+    { image: e1, text: "Professional home cleaning services for a fresh and healthy living space." },
+    { image: e2, text: "End-of-lease deep cleaning to ensure full bond refund." },
+    { image: e3, text: "Eco-friendly cleaning solutions for a sustainable future." }
   ];
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-      {data.map((item, index) => (
-        <Card
-          key={index}
-          hoverable
-          style={{ width: 240 }}
-          cover={<img alt={item.title} src={item.imageUrl} />}
-        >
-          <Card.Meta title={item.title} description={item.description} />
-        </Card>
-      ))}
+    <div style={{ position: 'relative', width: '100%', padding: '20px' }}>
+      <Carousel autoplay arrows>
+        {slides.map((slide, index) => (
+          <div key={index} style={{ position: 'relative', textAlign: 'center' }}>
+            <img 
+              src={slide.image} 
+              alt={`Slide ${index + 1}`} 
+              style={{ width: '100%', maxHeight: '700px', objectFit: 'cover', borderRadius: '8px' }}
+            />
+            <p style={{
+              marginTop: '10px', 
+              fontSize: '18px', 
+              fontWeight: 'bold', 
+              color: '#333'  // 文字颜色
+            }}>
+              {slide.text}
+            </p>
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };

@@ -2,27 +2,26 @@ import React from 'react';
 import { Carousel, Card } from 'antd';
 import './App.css';
 import r1 from './img/r1.jpg'
+import r2 from './img/r2.jpg'
+import r3 from './img/r3.jpg'
 const RoutineCleaning = () => {
-  const data = [
-    { title: "服务1", description: "这是服务1的描述", imageUrl: r1 },
-    { title: "服务2", description: "这是服务2的描述", imageUrl: "image2.jpg" },
-    { title: "服务3", description: "这是服务3的描述", imageUrl: "image3.jpg" },
-  ];
+  const images = [r1, r2, r3];
 
   return (
-    <Carousel autoplay style={{ width: '100%', padding: '20px' }}>
-      {data.map((item, index) => (
-        <div key={index}>
-          <Card
-            hoverable
-            style={{ width: '100%' }}
-            cover={<img alt={item.title} src={item.imageUrl} style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }} />}
-          >
-            <Card.Meta title={item.title} description={item.description} />
-          </Card>
-        </div>
-      ))}
-    </Carousel>
+    <div style={{ position: 'relative', width: '100%', padding: '20px' }}>
+      <Carousel autoplay arrows>
+        {images.map((imgSrc, index) => (
+          <div key={index} style={{ position: 'relative' }}>
+            <img 
+              src={imgSrc} 
+              alt={`Slide ${index + 1}`} 
+              style={{ width: '100%', maxHeight: '700px', objectFit: 'cover', borderRadius: '8px' }}
+            />
+          </div>
+        ))}
+      </Carousel>
+      <div></div>
+    </div>
   );
 };
 
